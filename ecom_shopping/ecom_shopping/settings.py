@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     
     # OWN APPS
     'shopping',
+    'category',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +73,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ecom_shopping.wsgi.application'
+
+AUTH_USER_MODEL = 'accounts.Account'
 
 
 # Database
@@ -128,5 +132,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
-    BASE_DIR / 'ecom_shopping/static',
+    BASE_DIR / 'shopping/static',
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
