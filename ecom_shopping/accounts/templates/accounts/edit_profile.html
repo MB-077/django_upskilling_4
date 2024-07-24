@@ -13,91 +13,67 @@
 							<strong class="d-inline-block mr-3">Edit your profile</strong>
 						</header>
 						<div class="card-body">
+							<div class="text-right">
+								<img src="{{ user.profile.profile_picture.url }}" alt="{{ user.username }}" width="100" style="border: radius 50px;">
+							</div>
 							<div class="row">
 								<div class="col-md-12">
-									<!-- <form method="post" enctype="multipart/form-data"> -->
-									<form action="" method="POST">
+									<form action="{% url "edit_profile" %}" method="POST" enctype="multipart/form-data">
 										{% csrf_token %}
-										{{ user_form }}
-										{{ profile_form }}
 										<div class="form-row">
 											<div class="form-group col-md-6">
 												<label>First Name</label>
-												<!-- <input type="text" class="form-control" name="first_name" value="{{ user.first_name }}"> -->
-												{{ user_from.first_name}}
+												{{ user_form.first_name}}
 											</div>
 											<div class="form-group col-md-6">
 												<label>Last Name</label>
-												<!-- <input type="text" class="form-control" name="last_name" value="{{ user.last_name }}"> -->
-												{{ user_from.last_name}}
+												{{ user_form.last_name}}
 											</div>
 										</div>
 										<div class="form-row">
 											<div class="form-group col-md-6">
 												<label>Email</label>
-												<!-- <input type="email" class="form-control" name="email" value="{{ user.email }}"> -->
-												{{ user_from.email}}
+												{{ user_form.email}}
 											</div>
 											<div class="form-group col-md-6">
 												<label>Phone</label>
-												<!-- <input type="text" class="form-control" name="phone" value="{{ user.phone_number }}"> -->
-												{{ user_from.phone_number}}
+												{{ user_form.phone_number}}
 											</div>
 										</div>
 										<div class="form-row">
 											<div class="form-group col-md-6">
 												<label>Country</label>
-												<!-- <input type="text" class="form-control" name="country" value="{{ user.profile.country }}"> -->
-												{{ profile_from.country}}
+												{{ profile_form.country}}
 											</div>
 											<div class="form-group col-md-6">
 												<label>State</label>
-												<!-- <input type="text" class="form-control" name="state" value="{{ user.profile.state }}"> -->
-												{{ profile_from.state}}
+												{{ profile_form.state}}
 											</div>
 										</div>
 										<div class="form-row">
 											<div class="form-group col-md-6">
 												<label>City</label>
-												<!-- <input type="text" class="form-control" name="city" value="{{ user.profile.city }}"> -->
-												{{ profile_from.city}}
+												{{ profile_form.city}}
 											</div>
 											<div class="form-group col-md-6">
 												<label>Postal Code</label>
-												<!-- <input type="text" class="form-control" name="postal_code" value="{{ user.profile.postal_code }}"> -->
-												{{ profile_from.postal_code}}
+												{{ profile_form.postal_code}}
 											</div>
 										</div>
 										<div class="form-row">
 											<div class="form-group col-md-12">
 												<label>Address Line 1</label>
-												<!-- <input type="text" class="form-control" name="address_line_1" value="{{ user.profile.address_line_1 }}"> -->
-												{{ profile_from.address_line_1}}
+												{{ profile_form.address_line_1}}
 											</div>
 											<div class="form-group col-md-12">
 												<label>Address Line 2</label>
-												<!-- <input type="text" class="form-control" name="address_line_2" value="{{ user.profile.address_line_2 }}"> -->
-												{{ profile_from.address_line_2}}
+												{{ profile_form.address_line_2}}
 											</div>
 										</div>
 										<div class="form-row">
 											<div class="form-group col-md-12">
 												<label for="profile_picture">Profile Picture</label>
-												<!-- <div class="custom-file">
-													<input type="file" class="custom-file-input" id="profile_picture" name="profile_picture">
-													<label class="custom-file-label" for="profile_picture">Choose File</label>
-												</div>
-												{% if user.profile_picture %}
-													<img src="{{ user.profile.profile_picture.url }}" class="img-thumbnail" style="width: 100px; height: 100px;">
-												{% endif %}
-												{% if  user.profile.profile_picture.url %}
-													<div class="form-group col-md-12">
-														<br>
-														<label>Remove Profile Picture</label>
-														<input type="checkbox" name="remove_profile_picture">
-													</div>
-												{% endif %} -->
-												{{ profile_from.profile_picture}}
+												{{ profile_form.profile_picture}}
 											</div>
 										</div>
 										<button type="submit" class="btn btn-primary">Update Profile</button>
